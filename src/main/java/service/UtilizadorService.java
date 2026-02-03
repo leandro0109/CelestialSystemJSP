@@ -1,0 +1,43 @@
+package service;
+
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.util.List;
+
+import dao.UtilizadorDAO;
+import model.Utilizador;
+
+public class UtilizadorService {
+	private UtilizadorDAO dao;
+
+	public UtilizadorService(Connection conn) {
+		this.dao = new UtilizadorDAO(conn);
+	}
+	
+	// LOGIN
+	public Utilizador login(String username, String senha) throws Exception {
+		String hash = gerarHash(senha);
+		List<Utilizador> users = dao.listarUtilizadores();
+		for(Utilizador u : users) {
+			if(u.getUsername().equals(username) && u.getSenha().equals(hash)) {
+				return u;
+			}
+		}
+		return null;
+	}
+	
+	// HASH
+	public static String gerarHash(String senha) throws NoSuchAlgorithmException {
+		
+		MessageDigest digest = MessageDigest.getInstance("SHA-256"); // criar instancia do algoritmo
+		
+		byte[] hash = digest.digest(senha.trim().getBytes(StandardCharsets.UTF_8)); // converte senha em bytes para gerar o hash
+		StringBuilder hex = new StringBuilder();
+		for(byte b : hash) {
+			hex.append(String.format("%02x", b));
+		}
+		return hex.toString();
+	}
+}
