@@ -33,14 +33,14 @@ public class LoginServlet extends HttpServlet {
 			
 			if(u == null) {
 				req.setAttribute("erro", "Utilizador ou senha incorretos");
-				req.getRequestDispatcher("/index.jsp").forward(req, resp);
+				req.getRequestDispatcher("/utilizadores/login.jsp").forward(req, resp);
 				return;
 			}
 			
 			HttpSession session = req.getSession();
 			session.setAttribute("utilizador", u);
 			
-			resp.sendRedirect(req.getContextPath() + "/dashboard.jsp");
+			resp.sendRedirect(req.getContextPath() + "/index.jsp");
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}

@@ -4,6 +4,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 import dao.UtilizadorDAO;
@@ -20,7 +21,7 @@ public class UtilizadorService {
 	public Utilizador login(String username, String senha) throws Exception {
 		String hash = gerarHash(senha);
 		List<Utilizador> users = dao.listarUtilizadores();
-		for(Utilizador u : users) {
+		for(Utilizador u : users) { 
 			if(u.getUsername().equals(username) && u.getSenha().equals(hash)) {
 				return u;
 			}
@@ -39,5 +40,10 @@ public class UtilizadorService {
 			hex.append(String.format("%02x", b));
 		}
 		return hex.toString();
+	}
+	
+	// LISTA UTILIZADORES
+	public List<Utilizador> listaUtilizadores() throws SQLException {
+		return dao.listarUtilizadores();
 	}
 }

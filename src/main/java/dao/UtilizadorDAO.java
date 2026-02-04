@@ -24,7 +24,7 @@ public class UtilizadorDAO {
 		
 		String sql = "SELECT IdUtilizador, Nome, Username, Email, SenhaHash, NivelAcesso FROM Utilizadores";
 		try(PreparedStatement stmt = conn.prepareStatement(sql);
-			ResultSet rs = stmt.executeQuery(sql)){
+			ResultSet rs = stmt.executeQuery()){
 			
 			while(rs.next()) {
 				
@@ -34,9 +34,9 @@ public class UtilizadorDAO {
 						(rs.getString("Username")),
 						(rs.getString("Email")),
 						(rs.getString("SenhaHash")),
-						(rs.getString("Nivel")));
+						(rs.getString("NivelAcesso")));
 				listaUtilizadores.add(u);
-			}
+			}	
 			return listaUtilizadores;
 		}
 		
