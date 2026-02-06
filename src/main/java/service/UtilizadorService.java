@@ -46,4 +46,9 @@ public class UtilizadorService {
 	public List<Utilizador> listaUtilizadores() throws SQLException {
 		return dao.listarUtilizadores();
 	}
+	
+	// INSERIR NOVO UTILIZADOR
+		public void criarUtilizador(Utilizador u) throws Exception {
+			dao.inserirUtilizador(u);
+		}
 }

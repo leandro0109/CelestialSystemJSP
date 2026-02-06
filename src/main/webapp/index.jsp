@@ -14,14 +14,17 @@ if (session == null || session.getAttribute("utilizador") == null) {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Menu Principal</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboardstyle.css">
 </head>
+
 <body>
 	<header>
 	<h1>Menu Principal</h1>
 		<nav>
-			<a href = "utilizadores/dashboard.jsp">Gerir Utilizadores</a>
-			<a href = "">Logout</a>
+			<a href="${pageContext.request.contextPath}/utilizadores">Gerir Utilizadores</a>
+			<a href="${pageContext.request.contextPath}/logout"
+			onclick="return confirm('Tem a certeza que quer fazer logout?');">Logout</a>
 		</nav>
 	</header>
 

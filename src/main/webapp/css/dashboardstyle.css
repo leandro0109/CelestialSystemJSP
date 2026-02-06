@@ -1,0 +1,176 @@
+/* Layout geral */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #0b1220;              /* azul muito escuro */
+    background-image: url('../imagens/dashboardbackground.png');
+    color: #e5e7eb;                   /* cinza claro */
+}
+
+/* Main */
+main {
+    flex: 1;
+    padding: 24px 32px;
+}
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(15,23,42,0.9);   /* fundo tipo card */
+    border-radius: 8px;
+    padding: 20px 24px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.1s;
+}
+
+.btn-edit {
+    background: #22c55e;
+    color: #ffffff;  /* branco para contrastar */
+    box-shadow: 0 2px 6px rgba(34,197,94,0.4);
+}
+
+.btn-apagar {
+    background: #ef4444;  /* vermelho */
+    color: #ffffff;        /* branco para contrastar */
+    box-shadow: 0 2px 6px rgba(239,68,68,0.4);
+}
+
+.btn-apagar:hover {
+    background: #dc2626;   /* vermelho mais escuro */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(239,68,68,0.6);
+}
+
+.btn-edit:hover {
+    background: #16a34a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(34,197,94,0.6);
+}
+
+/* Tabela de utilizadores */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    background: #020617;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background: #0f172a;
+    color: #e5e7eb;
+    border-bottom: 1px solid #1f2937;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 12px;
+}
+
+tbody tr:nth-child(even) {
+    background: #020617;
+}
+
+tbody tr:nth-child(odd) {
+    background: #020617;
+}
+
+tbody tr:hover {
+    background: #111827;
+}
+
+/* Colunas de ações (Editar / Apagar) */
+td a.btn-edit {
+    font-size: 12px;
+    padding: 6px 10px;
+}
+
+/* Card de boas-vindas */
+.card {
+    max-width: 600px;
+    margin: 24px auto 0;
+    padding: 16px 200px;
+    background: radial-gradient(circle at top left, #1d4ed8, #020617);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+}
+
+.card p {
+    margin-bottom: 6px;
+}
+
+.card strong {
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    padding: 25px 36px;
+    text-align: center;
+    font-size: 12px;
+    color: #9ca3af;
+    border-top: 1px solid #111827;
+    background: #020617;
+}
+
+/* Botão Voltar fixo - canto superior direito */
+.btn-voltar {
+    position: fixed;                    /* fixo na viewport */
+    top: 20px;                          /* topo */
+    right: 20px;                        /* direita */
+    z-index: 1100;                      /* sempre por cima */
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    
+    padding: 10px 16px;
+    background: radial-gradient(circle at top left, #1d4ed8, #020617);
+    color: #e5e7eb;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    
+    transition: all 0.2s ease;
+}
+
+.btn-voltar:hover {
+    background: rgba(15,23,42,1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+    border-color: rgba(255,255,255,0.3);
+}
+
+.btn-voltar:active {
+    transform: translateY(0);
+}
+
+
