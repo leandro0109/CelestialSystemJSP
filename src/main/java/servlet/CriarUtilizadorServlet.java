@@ -28,6 +28,8 @@ public class CriarUtilizadorServlet extends HttpServlet {
 			
 			UtilizadorService service = new UtilizadorService(DBConnection.getConnection());
 			service.criarUtilizador(u);
+			
+			resp.sendRedirect(req.getContextPath() + "/utilizadores");
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}	

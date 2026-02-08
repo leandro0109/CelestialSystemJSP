@@ -19,11 +19,12 @@ if (session == null || session.getAttribute("utilizador") == null) {
 <meta charset="UTF-8">
 <title>Utilizadores DBAstronómica</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/dashboardstyle.css">
+	href="${pageContext.request.contextPath}/css/dashboard.css">
 </head>
 <body>
 
-	<a href="${pageContext.request.contextPath}/index.jsp" class="btn-voltar">Voltar</a>
+	<a href="${pageContext.request.contextPath}/index.jsp"
+		class="btn-voltar">Voltar</a>
 
 	<div class="card">
 
@@ -67,9 +68,9 @@ if (session == null || session.getAttribute("utilizador") == null) {
 						<td>${u.senha}</td>
 						<td>${u.nivel}</td>
 						<td><a class="btn btn-edit"
-							href="${pageContext.request.contextPath }/utilizadores/editar?id=${u.idUtilizador}">
+							href="${pageContext.request.contextPath }/editarUtilizador?id=${u.idUtilizador}">
 								Editar </a> <a class="btn btn-apagar"
-							href="${pageContext.request.contextPath }/utilizadores/apagar?id=${u.idUtilizador}"
+							href="${pageContext.request.contextPath }/apagarUtilizador?id=${u.idUtilizador}"
 							onclick="return confirm('Tem certeza que deseja apagar este utilizador?');">
 								Apagar </a></td>
 					</tr>
@@ -80,7 +81,7 @@ if (session == null || session.getAttribute("utilizador") == null) {
 	</main>
 
 	<footer>
-		<p>@ 2026 DBAstronómica</p>
+		<p>@2026 DBAstronómica</p>
 	</footer>
 </body>
 </html>

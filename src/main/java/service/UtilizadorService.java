@@ -48,7 +48,22 @@ public class UtilizadorService {
 	}
 	
 	// INSERIR NOVO UTILIZADOR
-		public void criarUtilizador(Utilizador u) throws Exception {
-			dao.inserirUtilizador(u);
-		}
+	public void criarUtilizador(Utilizador u) throws Exception {
+		dao.inserirUtilizador(u);
+	}
+		
+	// APAGAR UTILIZADOR
+	public void apagarUtilizador(int id) throws SQLException {
+		dao.apagarUtilizador(id);
+	}
+	
+	// BUSCAR ID
+	public Utilizador buscarId(int id) throws SQLException {
+		return dao.buscarPorId(id);
+	}
+	
+	// EDITAR UTILIZADOR
+	public void editarUtilizador(Utilizador u) throws SQLException {
+		dao.editarUtilizador(u);
+	}
 }
